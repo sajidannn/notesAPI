@@ -1,5 +1,3 @@
-const ClientError = require('../../exceptions/ClientError');
-
 class NotesHandler {
   constructor(service, validator) {
     this._service = service;
@@ -37,7 +35,7 @@ class NotesHandler {
     };
   }
 
-  async getNoteByIdHandler(request, h) {
+  async getNoteByIdHandler(request) {
     const { id } = request.params;
     const note = await this._service.getNoteById(id);
     return {
@@ -48,7 +46,7 @@ class NotesHandler {
     };
   }
 
-  putNoteByIdHandler(request, h) {
+  putNoteByIdHandler(request) {
     this._validator.validateNotePayload(request.payload);
     const { id } = request.params;
 
@@ -60,7 +58,7 @@ class NotesHandler {
     };
   }
 
-  deleteNoteByIdHandler(request, h) {
+  deleteNoteByIdHandler(request) {
     const { id } = request.params;
 
     this._service.deleteNoteById(id);
