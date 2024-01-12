@@ -3,14 +3,17 @@ require('dotenv').config();
 const Hapi = require('@hapi/hapi');
 const Jwt = require('@hapi/jwt');
 
+//notes plugin
 const notes = require('./api/notes');
 const NotesService = require('./services/postgres/NotesService');
 const NotesValidator = require('./validator/notes');
 
+//users plugin
 const users = require('./api/users');
 const UsersService = require('./services/postgres/UsersService');
 const UsersValidator = require('./validator/users');
 
+//authentications plugin
 const authentications = require('./api/authentications');
 const AuthenticationsService = require('./services/postgres/AuthenticationsService');
 const TokenManager = require('./tokenize/TokenManager');
