@@ -26,7 +26,6 @@ class StorageService {
 
     await this._S3.send(parameter);
 
-    console.log(this._S3);
     return this.createPreSignedUrl({
       bucket: process.env.AWS_BUCKET_NAME,
       key: meta.filename,
